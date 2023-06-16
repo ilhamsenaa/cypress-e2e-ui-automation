@@ -12,7 +12,7 @@ $ npm install
 ```bash
 Step to run the test with open cypress GUI: 
 1. $ npm run cy:open
-2. Find voila-check-test.js 
+2. Find apply-care-pro.js
 3. Click it
 
 ```
