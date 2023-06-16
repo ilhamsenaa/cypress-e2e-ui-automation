@@ -20,7 +20,7 @@ Step to run the test with open cypress GUI:
 
 ```bash
 Step to run test without open cypress GUI
-1. $ npm run cy:run -- --spec "cypress/integration/tests/voila-checkout-test.js"
+1. $ npm run cy:run -- --spec "cypress/integration/tests/apply-care-pro.js"
 2. after finish, check the video folder and screenshoot folder
 
 ```
