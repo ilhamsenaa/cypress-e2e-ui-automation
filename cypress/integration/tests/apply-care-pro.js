@@ -15,7 +15,18 @@ describe('Given user apply pro care', function () {
   });
 
   it(
-    'With', function () {
-    }
-  );
+    'With experience and without using referral code', function () {
+  
+  });
+
+  it(
+    'Without experience and without using referral code', function () {
+
+
+  });
+
+  it(
+    'Without experience and without using referral code', function () {
+    
+  });
 });
