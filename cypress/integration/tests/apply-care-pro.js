@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker';
 
 describe('Given user apply pro care', function () {
   beforeEach(function () {
-    ApplyCareProPage.visitpage();
+    ApplyCareProPage.visitPage();
   });
 
   Cypress.on('uncaught:exception', (err, runnable) => {
@@ -34,22 +34,22 @@ describe('Given user apply pro care', function () {
       ApplyCareProPage.inputRolesSection({
         haveProfessionalHealthcareExperience: 'Yes',
         yearsOExperience: '1 to 3',
-        roles: Doctor
+        roles: 'Doctor'
       });
 
       ApplyCareProPage.inputJobOpportunitySection({ appliedJobOpportunityByPosition: [1,2,3]});
       ApplyCareProPage.inputEngagementTypeSection({ appliedEngagementTypeByPosition: [2,3,1]});
 
-      cy.scrollIntoView(ApplyCareProPage.getBackgroundCheckButton('No'));
+      ApplyCareProPage.getBackgroundCheckButton('No').scrollIntoView();
       ApplyCareProPage.getBackgroundCheckButton('No').click();
       ApplyCareProPage.chooseHearAboutThisJob({ hearAboutThisJob: 'YouTube'});
 
-      cy.scrollIntoView(ApplyCareProPage.getAgreementCheckboxByPosition(1));
+      ApplyCareProPage.getAgreementCheckboxByPosition(1).scrollIntoView();
       ApplyCareProPage.getAgreementCheckboxByPosition(1).click();
-      cy.scrollIntoView(ApplyCareProPage.getAgreementCheckboxByPosition(2));
+      ApplyCareProPage.getAgreementCheckboxByPosition(2).scrollIntoView();
       ApplyCareProPage.getAgreementCheckboxByPosition(2).click();
 
-      cy.scrollIntoView(ApplyCareProPage.getSubmitApplicationButton());
+      ApplyCareProPage.getSubmitApplicationButton().scrollIntoView();
       ApplyCareProPage.getSubmitApplicationButton().click();
   });
 

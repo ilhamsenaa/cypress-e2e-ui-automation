@@ -8,7 +8,7 @@ export default class applyCareProPage {
     }
 
     static getLastNameField() {
-        return cy.get('#lastname');
+        return cy.get('#lastName');
     }
 
     static getEmailField() {
@@ -44,7 +44,7 @@ export default class applyCareProPage {
     }
 
     static getEngagementTypeButtonByPosition(engagementTypePosition) {
-        return cy.get('.job_opp > .cpf-sec > .cpf-box.cpf-card').eq(engagementTypePosition - 1);
+        return cy.get('.engage_type > .cpf-sec > .cpf-box.cpf-card').eq(engagementTypePosition - 1);
     }
 
     static getBackgroundCheckButton(haveCommitCrime) {
@@ -102,37 +102,37 @@ export default class applyCareProPage {
     }
 
     static inputRolesSection({ haveProfessionalHealthcareExperience, yearsOExperience, roles }) {
-        cy.scrollIntoView(this.getHaveProfessionalHealthcareExperienceButton(haveProfessionalHealthcareExperience));
+        this.getHaveProfessionalHealthcareExperienceButton(haveProfessionalHealthcareExperience).scrollIntoView();
         this.getHaveProfessionalHealthcareExperienceButton(haveProfessionalHealthcareExperience).click();
         if (haveProfessionalHealthcareExperience === 'Yes') {
-            cy.scrollIntoView(this.getYearsProfessionalHealthExperienceButton(years));
+            this.getYearsProfessionalHealthExperienceButton(yearsOExperience).scrollIntoView
             this.getYearsProfessionalHealthExperienceButton(yearsOExperience).click();
-            cy.scrollIntoView(this.getRolesButton(roles));
+            this.getRolesButton(roles).scrollIntoView();
             this.getRolesButton(roles).click();
         } else {
-            cy.scrollIntoView(this.getRolesButton(roles));
+            this.getRolesButton(roles).scrollIntoView();
             this.getRolesButton(roles).click();
         }
     }
 
     static inputJobOpportunitySection({ appliedJobOpportunityByPosition }) {
-        for (index = 0; index < appliedJobOpportunityByPosition.length; index++ ) {
-            cy.scrollIntoView(this.getJobOpportunityButtonByPosition(appliedJobOpportunityByPosition[index]));
+        for (let index = 0; index < appliedJobOpportunityByPosition.length; index++ ) {
+            this.getJobOpportunityButtonByPosition(appliedJobOpportunityByPosition[index]).scrollIntoView();
             this.getJobOpportunityButtonByPosition(appliedJobOpportunityByPosition[index]).click();
         }
     }
 
     static inputEngagementTypeSection({ appliedEngagementTypeByPosition }) {
-        for (index = 0; index < appliedEngagementTypeByPosition.length; index++ ) {
-            cy.scrollIntoView(this.getEngagementTypeButtonByPosition(appliedEngagementTypeByPosition[index]));
+        for (let index = 0; index < appliedEngagementTypeByPosition.length; index++ ) {
+            this.getEngagementTypeButtonByPosition(appliedEngagementTypeByPosition[index]).scrollIntoView();
             this.getEngagementTypeButtonByPosition(appliedEngagementTypeByPosition[index]).click();
         }
     }
 
     static chooseHearAboutThisJob({ hearAboutThisJob }) {
-        cy.scrollIntoView(this.getHearAboutThisJobDropdownField());
+        this.getHearAboutThisJobDropdownField().scrollIntoView();
         this.getHearAboutThisJobDropdownField().click();
-        cy.scrollIntoView(this.getHearAboutThisJobDropdownValue(hearAboutThisJob));
+        this.getHearAboutThisJobDropdownValue(hearAboutThisJob).scrollIntoView();
         this.getHearAboutThisJobDropdownValue(hearAboutThisJob).click();
     }
 }
