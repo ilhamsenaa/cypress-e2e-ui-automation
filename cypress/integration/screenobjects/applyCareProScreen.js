@@ -1,4 +1,4 @@
-export default class applyCareProPage {
+export default class applyCareProScreen {
     static visitPage() {
        return cy.visit('https://apply.homage.sg/');
     }
