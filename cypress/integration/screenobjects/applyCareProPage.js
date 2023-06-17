@@ -59,6 +59,10 @@ export default class applyCareProPage {
         return cy.get('#source');
     }
 
+    static getDeclarationNameField() {
+        return cy.get('#declarationName');
+    }
+
     static getHearAboutThisJobDropdownValue(hearAboutThisJob) {
         return cy.get(`[data-value="${hearAboutThisJob}"]`);
     }
@@ -69,6 +73,10 @@ export default class applyCareProPage {
 
     static getSubmitApplicationButton() {
         return cy.get('.cpf-submit');
+    }
+
+    static getSuccessApplyWording() {
+        return cy.get('.cpf-content.cpf-success > h1');
     }
 
     static typeFirstname(firstName) {
