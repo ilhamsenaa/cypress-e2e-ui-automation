@@ -8,7 +8,7 @@ UI End to End testing using [Cypress](https://www.cypress.io).
 2. $ npm install
 ```
 
-### How to Run
+## How to Run
 
 ```bash
 Step to run the test with open cypress GUI: 
