@@ -39,20 +39,28 @@ export default class applyCareProPage {
         return cy.get('.cpf-box.cpf-border.justify-between > div > .g').contains(roles);
     }
 
-    static getJobOpportunityByPosition(jobOpportunityPosition) {
+    static getJobOpportunityButtonByPosition(jobOpportunityPosition) {
         return cy.get('.job_opp > .cpf-sec > .cpf-box.cpf-card').eq(jobOpportunityPosition - 1);
     }
 
-    static getEngagementTypeByPosition(engagementTypePosition) {
+    static getEngagementTypeButtonByPosition(engagementTypePosition) {
         return cy.get('.job_opp > .cpf-sec > .cpf-box.cpf-card').eq(engagementTypePosition - 1);
     }
 
-    static getBackgroundCheck(haveCommitCrime) {
+    static getBackgroundCheckButton(haveCommitCrime) {
         return cy.get('div:nth-child(17) > .cpf-box.cpf-btn').contains(haveCommitCrime);
     }
 
     static getReferralCodeField() {
         return cy.get('#referral');
+    }
+
+    static getHearAboutThisJobDropdownField() {
+        return cy.get('#source');
+    }
+
+    static getHearAboutThisJobDropdownValue(hearAboutThisJob) {
+        return cy.get(`[data-value="${hearAboutThisJob}"]`);
     }
 
     static getAgreementCheckboxByPosition(checkboxPosition) {
@@ -87,13 +95,13 @@ export default class applyCareProPage {
         this.typeFirstname(firstName);
         this.typeLastname(lastName)
         this.typeEmail(email);
-        this.phoneNumber(phoneNumber);
+        this.typePhoneNumber(phoneNumber);
 
-        this.getIsLegalAgeButton(isLegalAge);
-        this.getIsSingaporeResidentButton(isSingaporeResident);
+        this.getIsLegalAgeButton(isLegalAge).click();
+        this.getIsSingaporeResidentButton(isSingaporeResident).click();
     }
 
-    static inputRolesSection({haveProfessionalHealthcareExperience, yearsOExperience, roles}) {
+    static inputRolesSection({ haveProfessionalHealthcareExperience, yearsOExperience, roles }) {
         cy.scrollIntoView(this.getHaveProfessionalHealthcareExperienceButton(haveProfessionalHealthcareExperience));
         this.getHaveProfessionalHealthcareExperienceButton(haveProfessionalHealthcareExperience).click();
         if (haveProfessionalHealthcareExperience === 'Yes') {
@@ -105,5 +113,26 @@ export default class applyCareProPage {
             cy.scrollIntoView(this.getRolesButton(roles));
             this.getRolesButton(roles).click();
         }
+    }
+
+    static inputJobOpportunitySection({ appliedJobOpportunityByPosition }) {
+        for (index = 0; index < appliedJobOpportunityByPosition.length; index++ ) {
+            cy.scrollIntoView(this.getJobOpportunityButtonByPosition(appliedJobOpportunityByPosition[index]));
+            this.getJobOpportunityButtonByPosition(appliedJobOpportunityByPosition[index]).click();
+        }
+    }
+
+    static inputEngagementTypeSection({ appliedEngagementTypeByPosition }) {
+        for (index = 0; index < appliedEngagementTypeByPosition.length; index++ ) {
+            cy.scrollIntoView(this.getEngagementTypeButtonByPosition(appliedEngagementTypeByPosition[index]));
+            this.getEngagementTypeButtonByPosition(appliedEngagementTypeByPosition[index]).click();
+        }
+    }
+
+    static chooseHearAboutThisJob({ hearAboutThisJob }) {
+        cy.scrollIntoView(this.getHearAboutThisJobDropdownField());
+        this.getHearAboutThisJobDropdownField().click();
+        cy.scrollIntoView(this.getHearAboutThisJobDropdownValue(hearAboutThisJob));
+        this.getHearAboutThisJobDropdownValue(hearAboutThisJob).click();
     }
 }

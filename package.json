@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cy:verify": "cypress verify",
-    "cy:open": "cypress open",
+    "cy:open": "cypress open --project /cypress/integration/tests",
     "cy:run": "cypress run",
     "test": "sh run.sh",
     "test:headless": "sh run.sh --headless"
