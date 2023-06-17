@@ -3,7 +3,8 @@
 ```bash
 Bug Reporting
 
-Title : if user send otp with the initial country phone number using other than australia, singapore, malaysia , get errror message "Error Sending Code"
+Title : if user send otp with the initial country phone number using other than australia, singapore, malaysia, 
+        get errror message "Error Sending Code"
 
 Step to reproduce: 
 
