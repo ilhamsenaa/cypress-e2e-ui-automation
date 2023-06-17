@@ -25,3 +25,21 @@ Step to run test without open cypress GUI
 2. after finish, check the video folder and screenshoot folder
 
 ```
+
+## Challenge Part 1
+```bash
+I put the answer on Answer-Part-1.md files
+
+```
+
+## Challenge Part 2
+```bash
+I put the answer on Answer-Part-2.md files
+
+```
+
+## Challenge Part 3
+```bash
+I put the answer on Answer-Part-3.md files
+
+```
