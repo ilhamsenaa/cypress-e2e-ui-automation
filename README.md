@@ -4,7 +4,8 @@ UI End to End testing using [Cypress](https://www.cypress.io).
 ## How to install
 
 ```bash
-$ npm install
+1. download Node js from https://nodejs.org/en/download or via NVM
+2. $ npm install
 ```
 
 ### How to Run

@@ -1,11 +1,11 @@
-import ApplyCareProPage from '../screenobjects/applyCareProPage';
+import ApplyCareProScreen from '../../screenobjects/applyCareProScreen';
 import { faker } from '@faker-js/faker';
 
 const applyCareProApiUrl = '/api/v3/carepro/apply'
 
 describe('Given user apply pro care', function () {
   beforeEach(function () {
-    ApplyCareProPage.visitPage();
+    ApplyCareProScreen.visitPage();
   });
 
   it(
@@ -13,7 +13,7 @@ describe('Given user apply pro care', function () {
       const firstName = faker.person.firstName();
       const lastName = faker.person.lastName();
 
-      ApplyCareProPage.inputBasicDetailsSection({ 
+      ApplyCareProScreen.inputBasicDetailsSection({ 
         firstName: firstName, 
         lastName: lastName,
         email:faker.internet.exampleEmail({ 
@@ -25,36 +25,36 @@ describe('Given user apply pro care', function () {
         isSingaporeResident: 'Yes'
       });
 
-      ApplyCareProPage.inputRolesSection({
+      ApplyCareProScreen.inputRolesSection({
         haveProfessionalHealthcareExperience: 'Yes',
         yearsOExperience: '1 to 3',
         roles: 'Doctor'
       });
 
-      ApplyCareProPage.inputJobOpportunitySection({ appliedJobOpportunityByPosition: [1,2,3]});
-      ApplyCareProPage.inputEngagementTypeSection({ appliedEngagementTypeByPosition: [2,3]});
+      ApplyCareProScreen.inputJobOpportunitySection({ appliedJobOpportunityByPosition: [1,2,3]});
+      ApplyCareProScreen.inputEngagementTypeSection({ appliedEngagementTypeByPosition: [2,3]});
 
-      ApplyCareProPage.getBackgroundCheckButton('No').scrollIntoView();
-      ApplyCareProPage.getBackgroundCheckButton('No').click();
-      ApplyCareProPage.chooseHearAboutThisJob({ hearAboutThisJob: 'YouTube'});
+      ApplyCareProScreen.getBackgroundCheckButton('No').scrollIntoView();
+      ApplyCareProScreen.getBackgroundCheckButton('No').click();
+      ApplyCareProScreen.chooseHearAboutThisJob({ hearAboutThisJob: 'YouTube'});
 
-      ApplyCareProPage.getDeclarationNameField().should('have.value', `${firstName} ${lastName}`);
+      ApplyCareProScreen.getDeclarationNameField().should('have.value', `${firstName} ${lastName}`);
 
-      ApplyCareProPage.getAgreementCheckboxByPosition(1).scrollIntoView();
-      ApplyCareProPage.getAgreementCheckboxByPosition(1).click();
-      ApplyCareProPage.getAgreementCheckboxByPosition(2).scrollIntoView();
-      ApplyCareProPage.getAgreementCheckboxByPosition(2).click();
+      ApplyCareProScreen.getAgreementCheckboxByPosition(1).scrollIntoView();
+      ApplyCareProScreen.getAgreementCheckboxByPosition(1).click();
+      ApplyCareProScreen.getAgreementCheckboxByPosition(2).scrollIntoView();
+      ApplyCareProScreen.getAgreementCheckboxByPosition(2).click();
 
       cy.intercept({
         method: 'POST',
         url : applyCareProApiUrl
       }).as('applyCareProApi');
 
-      ApplyCareProPage.getSubmitApplicationButton().scrollIntoView();
-      ApplyCareProPage.getSubmitApplicationButton().click();
+      ApplyCareProScreen.getSubmitApplicationButton().scrollIntoView();
+      ApplyCareProScreen.getSubmitApplicationButton().click();
 
       cy.wait('@applyCareProApi');
-      ApplyCareProPage.getSuccessApplyWording().should('contain', 'Your application has been submitted!');
+      ApplyCareProScreen.getSuccessApplyWording().should('contain', 'Your application has been submitted!');
   });
 
   it(
@@ -62,7 +62,7 @@ describe('Given user apply pro care', function () {
       const firstName = faker.person.firstName();
       const lastName = faker.person.lastName();
 
-      ApplyCareProPage.inputBasicDetailsSection({ 
+      ApplyCareProScreen.inputBasicDetailsSection({ 
         firstName: firstName, 
         lastName: lastName,
         email:faker.internet.exampleEmail({ 
@@ -74,35 +74,35 @@ describe('Given user apply pro care', function () {
         isSingaporeResident: 'No'
       });
 
-      ApplyCareProPage.inputRolesSection({
+      ApplyCareProScreen.inputRolesSection({
         haveProfessionalHealthcareExperience: 'No',
         roles: 'Admin'
       });
 
-      ApplyCareProPage.inputJobOpportunitySection({ appliedJobOpportunityByPosition: [4,1]});
-      ApplyCareProPage.inputEngagementTypeSection({ appliedEngagementTypeByPosition: [1]});
+      ApplyCareProScreen.inputJobOpportunitySection({ appliedJobOpportunityByPosition: [4,1]});
+      ApplyCareProScreen.inputEngagementTypeSection({ appliedEngagementTypeByPosition: [1]});
 
-      ApplyCareProPage.getBackgroundCheckButton('Yes').scrollIntoView();
-      ApplyCareProPage.getBackgroundCheckButton('Yes').click();
-      ApplyCareProPage.chooseHearAboutThisJob({ hearAboutThisJob: 'Community clubs & groups'});
+      ApplyCareProScreen.getBackgroundCheckButton('Yes').scrollIntoView();
+      ApplyCareProScreen.getBackgroundCheckButton('Yes').click();
+      ApplyCareProScreen.chooseHearAboutThisJob({ hearAboutThisJob: 'Community clubs & groups'});
 
-      ApplyCareProPage.getDeclarationNameField().should('have.value', `${firstName} ${lastName}`);
+      ApplyCareProScreen.getDeclarationNameField().should('have.value', `${firstName} ${lastName}`);
 
-      ApplyCareProPage.getAgreementCheckboxByPosition(1).scrollIntoView();
-      ApplyCareProPage.getAgreementCheckboxByPosition(1).click();
-      ApplyCareProPage.getAgreementCheckboxByPosition(2).scrollIntoView();
-      ApplyCareProPage.getAgreementCheckboxByPosition(2).click();
+      ApplyCareProScreen.getAgreementCheckboxByPosition(1).scrollIntoView();
+      ApplyCareProScreen.getAgreementCheckboxByPosition(1).click();
+      ApplyCareProScreen.getAgreementCheckboxByPosition(2).scrollIntoView();
+      ApplyCareProScreen.getAgreementCheckboxByPosition(2).click();
 
       cy.intercept({
         method: 'POST',
         url : applyCareProApiUrl
       }).as('applyCareProApi');
 
-      ApplyCareProPage.getSubmitApplicationButton().scrollIntoView();
-      ApplyCareProPage.getSubmitApplicationButton().click();
+      ApplyCareProScreen.getSubmitApplicationButton().scrollIntoView();
+      ApplyCareProScreen.getSubmitApplicationButton().click();
 
       cy.wait('@applyCareProApi');
-      ApplyCareProPage.getSuccessApplyWording().should('contain', 'Your application has been submitted!');
+      ApplyCareProScreen.getSuccessApplyWording().should('contain', 'Your application has been submitted!');
   });
 
   it(
@@ -111,7 +111,7 @@ describe('Given user apply pro care', function () {
       const firstName = faker.person.firstName();
       const lastName = faker.person.lastName();
 
-      ApplyCareProPage.inputBasicDetailsSection({ 
+      ApplyCareProScreen.inputBasicDetailsSection({ 
         firstName: firstName, 
         lastName: lastName,
         email:faker.internet.exampleEmail({ 
@@ -123,37 +123,37 @@ describe('Given user apply pro care', function () {
         isSingaporeResident: 'No'
       });
 
-      ApplyCareProPage.inputRolesSection({
+      ApplyCareProScreen.inputRolesSection({
         haveProfessionalHealthcareExperience: 'No',
         roles: 'Caregiver'
       });
 
-      ApplyCareProPage.inputJobOpportunitySection({ appliedJobOpportunityByPosition: [1]});
-      ApplyCareProPage.inputEngagementTypeSection({ appliedEngagementTypeByPosition: [1,2,3]});
+      ApplyCareProScreen.inputJobOpportunitySection({ appliedJobOpportunityByPosition: [1]});
+      ApplyCareProScreen.inputEngagementTypeSection({ appliedEngagementTypeByPosition: [1,2,3]});
 
-      ApplyCareProPage.getBackgroundCheckButton('Yes').scrollIntoView();
-      ApplyCareProPage.getBackgroundCheckButton('Yes').click();
+      ApplyCareProScreen.getBackgroundCheckButton('Yes').scrollIntoView();
+      ApplyCareProScreen.getBackgroundCheckButton('Yes').click();
 
-      ApplyCareProPage.getReferralCodeField().scrollIntoView();
-      ApplyCareProPage.typeReferralCode(faker.random.alphaNumeric(5).toUpperCase());
-      ApplyCareProPage.chooseHearAboutThisJob({ hearAboutThisJob: 'TV'});
+      ApplyCareProScreen.getReferralCodeField().scrollIntoView();
+      ApplyCareProScreen.typeReferralCode(faker.random.alphaNumeric(5).toUpperCase());
+      ApplyCareProScreen.chooseHearAboutThisJob({ hearAboutThisJob: 'TV'});
 
-      ApplyCareProPage.getDeclarationNameField().should('have.value', `${firstName} ${lastName}`);
+      ApplyCareProScreen.getDeclarationNameField().should('have.value', `${firstName} ${lastName}`);
 
-      ApplyCareProPage.getAgreementCheckboxByPosition(1).scrollIntoView();
-      ApplyCareProPage.getAgreementCheckboxByPosition(1).click();
-      ApplyCareProPage.getAgreementCheckboxByPosition(2).scrollIntoView();
-      ApplyCareProPage.getAgreementCheckboxByPosition(2).click();
+      ApplyCareProScreen.getAgreementCheckboxByPosition(1).scrollIntoView();
+      ApplyCareProScreen.getAgreementCheckboxByPosition(1).click();
+      ApplyCareProScreen.getAgreementCheckboxByPosition(2).scrollIntoView();
+      ApplyCareProScreen.getAgreementCheckboxByPosition(2).click();
 
       cy.intercept({
         method: 'POST',
         url : applyCareProApiUrl
       }).as('applyCareProApi');
 
-      ApplyCareProPage.getSubmitApplicationButton().scrollIntoView();
-      ApplyCareProPage.getSubmitApplicationButton().click();
+      ApplyCareProScreen.getSubmitApplicationButton().scrollIntoView();
+      ApplyCareProScreen.getSubmitApplicationButton().click();
 
       cy.wait('@applyCareProApi');
-      ApplyCareProPage.getSuccessApplyWording().should('contain', 'Your application has been submitted!');
+      ApplyCareProScreen.getSuccessApplyWording().should('contain', 'Your application has been submitted!');
   });
 });
