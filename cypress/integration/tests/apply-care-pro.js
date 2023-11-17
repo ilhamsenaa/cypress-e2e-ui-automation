@@ -22,7 +22,7 @@ describe('Given user apply pro care', function () {
         }),
         phoneNumber: faker.phone.number('3#######'),
         isLegalAge: 'Yes',
-        isSingaporeResident: 'Yes'
+        residencyStatus: 'Singapore Citizen'
       });
 
       ApplyCareProScreen.inputRolesSection({
@@ -71,7 +71,7 @@ describe('Given user apply pro care', function () {
         }),
         phoneNumber: faker.phone.number('3#######'),
         isLegalAge: 'Yes',
-        isSingaporeResident: 'No'
+        residencyStatus: 'Singapore Citizen'
       });
 
       ApplyCareProScreen.inputRolesSection({
@@ -120,7 +120,7 @@ describe('Given user apply pro care', function () {
         }),
         phoneNumber: faker.phone.number('3#######'),
         isLegalAge: 'Yes',
-        isSingaporeResident: 'No'
+        residencyStatus: 'Singapore Citizen'
       });
 
       ApplyCareProScreen.inputRolesSection({

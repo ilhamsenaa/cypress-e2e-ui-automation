@@ -27,6 +27,14 @@ export default class applyCareProScreen {
         return cy.get('#countrysg > .cpf-btn').contains(isSingaporeResident);
     }
 
+    static getResidencyStatusDropdownField() {
+        return cy.get('div#nationality');
+    }
+
+    static getResidencyStatusDropdownValue(residencyStatus) {
+        return cy.get(`[data-value="${residencyStatus}"]`);
+    }
+
     static getHaveProfessionalHealthcareExperienceButton(haveProfessionalHealthcareExperience) {
         return cy.get('.yes-no-sg > .cpf-btn').contains(haveProfessionalHealthcareExperience);
     }
@@ -67,6 +75,8 @@ export default class applyCareProScreen {
         return cy.get(`[data-value="${hearAboutThisJob}"]`);
     }
 
+    
+
     static getAgreementCheckboxByPosition(checkboxPosition) {
         return cy.get('.cpf-checkbox').eq(checkboxPosition - 1);
     }
@@ -99,14 +109,22 @@ export default class applyCareProScreen {
         this.getReferralCodeField().type(referralCode);
     }
 
-    static inputBasicDetailsSection({ firstName, lastName, email, phoneNumber, isLegalAge, isSingaporeResident}) {
+    static chooseResidencyStatus(residencyStatus) {
+        this.getResidencyStatusDropdownField().scrollIntoView();
+        this.getResidencyStatusDropdownField().click();
+        this.getResidencyStatusDropdownValue(residencyStatus).scrollIntoView();
+        this.getResidencyStatusDropdownValue(residencyStatus).click();
+    }
+
+    static inputBasicDetailsSection({ firstName, lastName, email, phoneNumber, isLegalAge, residencyStatus}) {
         this.typeFirstname(firstName);
         this.typeLastname(lastName)
         this.typeEmail(email);
         this.typePhoneNumber(phoneNumber);
 
         this.getIsLegalAgeButton(isLegalAge).click();
-        this.getIsSingaporeResidentButton(isSingaporeResident).click();
+        this.chooseResidencyStatus(residencyStatus)
+        // this.getIsSingaporeResidentButton(isSingaporeResident).click();
     }
 
     static inputRolesSection({ haveProfessionalHealthcareExperience, yearsOExperience, roles }) {
