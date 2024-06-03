@@ -1,4 +1,5 @@
 import ApplyCareProScreen from '../../screenobjects/applyCareProScreen';
+import generalHelper from '../../helper/general/generalHelper';
 import { faker } from '@faker-js/faker';
 
 const applyCareProApiUrl = '/api/v3/carepro/apply'
@@ -10,17 +11,16 @@ describe('Given user apply pro care', function () {
 
   it(
     'With professional healthcare experience and without using referral code should redirected to your application has been submitted page', function () {
-      const firstName = faker.person.firstName();
-      const lastName = faker.person.lastName();
+      const fullName = generalHelper.generateName();
 
       ApplyCareProScreen.inputBasicDetailsSection({ 
-        firstName: firstName, 
-        lastName: lastName,
+        firstName: fullName.firstName, 
+        lastName: fullName.lastName,
         email:faker.internet.exampleEmail({ 
-          firstName: firstName, 
-          lastName: lastName
+          firstName: fullName.firstName, 
+          lastName: fullName.lastName
         }),
-        phoneNumber: faker.phone.number('3#######'),
+        phoneNumber: generalHelper.generatePhoneNumber('sg'),
         isLegalAge: 'Yes',
         residencyStatus: 'Singapore Citizen'
       });
@@ -38,7 +38,7 @@ describe('Given user apply pro care', function () {
       ApplyCareProScreen.getBackgroundCheckButton('No').click();
       ApplyCareProScreen.chooseHearAboutThisJob({ hearAboutThisJob: 'YouTube'});
 
-      ApplyCareProScreen.getDeclarationNameField().should('have.value', `${firstName} ${lastName}`);
+      ApplyCareProScreen.getDeclarationNameField().should('have.value', `${fullName.firstName} ${fullName.lastName}`);
 
       ApplyCareProScreen.getAgreementCheckboxByPosition(1).scrollIntoView();
       ApplyCareProScreen.getAgreementCheckboxByPosition(1).click();
@@ -59,17 +59,16 @@ describe('Given user apply pro care', function () {
 
   it(
     'Without professional healthcare experience and without using referral code should redirected to your application has been submitted page', function () {
-      const firstName = faker.person.firstName();
-      const lastName = faker.person.lastName();
+      const fullName = generalHelper.generateName();
 
       ApplyCareProScreen.inputBasicDetailsSection({ 
-        firstName: firstName, 
-        lastName: lastName,
+        firstName: fullName.firstName, 
+        lastName: fullName.lastName,
         email:faker.internet.exampleEmail({ 
-          firstName: firstName, 
-          lastName: lastName
+          firstName: fullName.firstName, 
+          lastName: fullName.lastName
         }),
-        phoneNumber: faker.phone.number('3#######'),
+        phoneNumber: generalHelper.generatePhoneNumber('sg'),
         isLegalAge: 'Yes',
         residencyStatus: 'Singapore Citizen'
       });
@@ -86,7 +85,7 @@ describe('Given user apply pro care', function () {
       ApplyCareProScreen.getBackgroundCheckButton('Yes').click();
       ApplyCareProScreen.chooseHearAboutThisJob({ hearAboutThisJob: 'Community clubs & groups'});
 
-      ApplyCareProScreen.getDeclarationNameField().should('have.value', `${firstName} ${lastName}`);
+      ApplyCareProScreen.getDeclarationNameField().should('have.value', `${fullName.firstName} ${fullName.lastName}`);
 
       ApplyCareProScreen.getAgreementCheckboxByPosition(1).scrollIntoView();
       ApplyCareProScreen.getAgreementCheckboxByPosition(1).click();
@@ -107,18 +106,16 @@ describe('Given user apply pro care', function () {
 
   it(
     'Without professional healthcare experience and with using referral code should redirected to your application has been submitted page', function () {
-    
-      const firstName = faker.person.firstName();
-      const lastName = faker.person.lastName();
-
+      const fullName = generalHelper.generateName();
+      
       ApplyCareProScreen.inputBasicDetailsSection({ 
-        firstName: firstName, 
-        lastName: lastName,
+        firstName: fullName.firstName, 
+        lastName: fullName.lastName,
         email:faker.internet.exampleEmail({ 
-          firstName: firstName, 
-          lastName: lastName
+          firstName: fullName.firstName, 
+          lastName: fullName.lastName
         }),
-        phoneNumber: faker.phone.number('3#######'),
+        phoneNumber: generalHelper.generatePhoneNumber('sg'),
         isLegalAge: 'Yes',
         residencyStatus: 'Singapore Citizen'
       });
@@ -138,7 +135,7 @@ describe('Given user apply pro care', function () {
       ApplyCareProScreen.typeReferralCode(faker.random.alphaNumeric(5).toUpperCase());
       ApplyCareProScreen.chooseHearAboutThisJob({ hearAboutThisJob: 'TV'});
 
-      ApplyCareProScreen.getDeclarationNameField().should('have.value', `${firstName} ${lastName}`);
+      ApplyCareProScreen.getDeclarationNameField().should('have.value', `${fullName.firstName} ${fullName.lastName}`);
 
       ApplyCareProScreen.getAgreementCheckboxByPosition(1).scrollIntoView();
       ApplyCareProScreen.getAgreementCheckboxByPosition(1).click();
