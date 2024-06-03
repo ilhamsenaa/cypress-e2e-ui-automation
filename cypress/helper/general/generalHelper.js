@@ -1,4 +1,3 @@
-// helper in general, write code down below
 import { faker } from '@faker-js/faker';
 
 export default class generalHelper {

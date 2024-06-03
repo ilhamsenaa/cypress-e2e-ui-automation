@@ -1,1 +1,0 @@
-// example of precondition for registration, write code down below

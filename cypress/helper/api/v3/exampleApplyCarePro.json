@@ -1,0 +1,29 @@
+{
+    "success": true,
+    "segment": {
+        "id": "tCeDyxK5bR",
+        "cp": {
+            "cp_id": "VAT0P3u-OR8",
+            "email": "jancoq@gmail.com",
+            "name": "ibet jancoqe",
+            "country": "Singapore",
+            "phone": "8138309221",
+            "roles": "CarePro",
+            "carepro_type": "Registered Nurse",
+            "cg_experience": "Yes",
+            "background_check": true,
+            "job_type": [
+                "Freelance"
+            ],
+            "applying_from": "Singapore - Singapore",
+            "nationality": "Singapore Permanent Resident",
+            "job_opportunities": [
+                "Home Care"
+            ],
+            "legal_age": true,
+            "country_residency": true,
+            "application_source": "Healthcare institutions (hospitals, nursing homes)"
+        },
+        "is_stc_eligible": false
+    }
+}
