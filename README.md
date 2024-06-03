@@ -26,20 +26,9 @@ Step to run test without open cypress GUI
 
 ```
 
-## Challenge Part 1
+## Notes and info
 ```bash
-I put the answer on Answer-Part-1.md files
-
-```
-
-## Challenge Part 2
-```bash
-I put the answer on Answer-Part-2.md files
-
-```
-
-## Challenge Part 3
-```bash
-I put the answer on Answer-Part-3.md files
+This repository is for my practice and experimental for creating UI automation from scraft and create good folder architectue that can be used for general purpose
+For ask you can contact ilhamsena30@gmail.com / ilhamsena15@gmail.com
 
 ```
