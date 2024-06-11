@@ -14,4 +14,8 @@ export default class generalHelper {
             lastName: faker.person.lastName()
         }
     }
+
+    static generateEmail() {
+        return `${faker.person.fullName}@gmail.com`
+    }
 }
