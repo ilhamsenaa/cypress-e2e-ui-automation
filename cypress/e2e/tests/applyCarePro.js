@@ -36,7 +36,7 @@ describe('Given user apply pro care', function () {
 
       ApplyCareProScreen.getBackgroundCheckButton('No').scrollIntoView();
       ApplyCareProScreen.getBackgroundCheckButton('No').click();
-      ApplyCareProScreen.chooseHearAboutThisJob({ hearAboutThisJob: 'YouTube'});
+      ApplyCareProScreen.chooseHearAboutThisJob({ hearAboutThisJob: 'Job board - Jobstreet'});
 
       ApplyCareProScreen.getDeclarationNameField().should('have.value', `${fullName.firstName} ${fullName.lastName}`);
 
@@ -83,7 +83,7 @@ describe('Given user apply pro care', function () {
 
       ApplyCareProScreen.getBackgroundCheckButton('Yes').scrollIntoView();
       ApplyCareProScreen.getBackgroundCheckButton('Yes').click();
-      ApplyCareProScreen.chooseHearAboutThisJob({ hearAboutThisJob: 'Community clubs & groups'});
+      ApplyCareProScreen.chooseHearAboutThisJob({ hearAboutThisJob: 'Job board - Jobstreet'});
 
       ApplyCareProScreen.getDeclarationNameField().should('have.value', `${fullName.firstName} ${fullName.lastName}`);
 
@@ -133,7 +133,7 @@ describe('Given user apply pro care', function () {
 
       ApplyCareProScreen.getReferralCodeField().scrollIntoView();
       ApplyCareProScreen.typeReferralCode(faker.random.alphaNumeric(5).toUpperCase());
-      ApplyCareProScreen.chooseHearAboutThisJob({ hearAboutThisJob: 'TV'});
+      ApplyCareProScreen.chooseHearAboutThisJob({ hearAboutThisJob: 'Job board - SnatchJobs'});
 
       ApplyCareProScreen.getDeclarationNameField().should('have.value', `${fullName.firstName} ${fullName.lastName}`);
 
