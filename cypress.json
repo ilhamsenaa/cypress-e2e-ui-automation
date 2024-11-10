@@ -3,5 +3,8 @@
     "viewportHeight": 1080,
     "defaultCommandTimeout": 20000,
     "requestTimeout": 10000,
-    "integrationFolder": "cypress/e2e/tests"
+    "integrationFolder": "cypress/e2e/tests",
+    "env": {
+        "allureResultsPath": "cypress/allure-results"
+    }
 }

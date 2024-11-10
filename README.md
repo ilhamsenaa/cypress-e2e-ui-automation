@@ -29,6 +29,6 @@ Step to run test without open cypress GUI
 ## Notes and info
 ```bash
 This repository is for my practice and experimental for creating UI automation from scraft and create good folder architectue that can be used for general purpose
-For ask you can contact ilhamsena30@gmail.com / ilhamsena15@gmail.com
+For ask you can contact ilhamsena30@gmail.com
 
 ```

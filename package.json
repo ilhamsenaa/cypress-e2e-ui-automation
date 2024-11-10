@@ -7,8 +7,8 @@
     "cy:verify": "cypress verify",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "test": "sh run.sh",
-    "test:headless": "sh run.sh --headless"
+    "cy:generate-report": "allure generate cypress/allure-results --clean -o cypress/allure-results && allure open cypress/allure-results",
+    "cy:open-report": "allure open cypress/allure-results"
   },
   "repository": {
     "type": "git",
@@ -57,6 +57,8 @@
   "devDependencies": {
     "@babel/parser": "^7.15.5",
     "@faker-js/faker": "^8.0.2",
+    "@shelex/cypress-allure-plugin": "^2.40.2",
+    "allure-commandline": "^2.32.0",
     "chalk": "^4.1.2",
     "cypress": "^7.7.0",
     "cypress-xpath": "^2.0.1",
