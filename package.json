@@ -7,7 +7,7 @@
     "verify": "cypress verify",
     "open": "cypress open",
     "test": "cypress run",
-    "open-report": "allure serve cypress/allure-results"
+    "open-report": "allure serve allure-results"
   },
   "repository": {
     "type": "git",
