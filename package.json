@@ -4,11 +4,10 @@
   "description": "cypress test automation",
   "main": "index.js",
   "scripts": {
-    "cy:verify": "cypress verify",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "cy:generate-report": "allure generate cypress/allure-results --clean -o cypress/allure-results && allure open cypress/allure-results",
-    "cy:open-report": "allure open cypress/allure-results"
+    "verify": "cypress verify",
+    "open": "cypress open",
+    "test": "cypress run",
+    "open-report": "allure serve cypress/allure-results"
   },
   "repository": {
     "type": "git",
@@ -45,7 +44,6 @@
     "glob": "^7.1.7",
     "inquirer": "^8.0.0",
     "knex": "^0.95.6",
-    "mocha": "^8.4.0",
     "mysql": "^2.18.1",
     "pg": "^8.6.0",
     "prettier": "^2.4.0",
@@ -59,11 +57,13 @@
     "@faker-js/faker": "^8.0.2",
     "@shelex/cypress-allure-plugin": "^2.40.2",
     "allure-commandline": "^2.32.0",
+    "allure-cypress": "^3.0.6",
     "chalk": "^4.1.2",
-    "cypress": "^7.7.0",
+    "cypress": "^13.15.2",
     "cypress-xpath": "^2.0.1",
     "husky": "^7.0.0",
     "lint-staged": "^12.4.1",
+    "mocha": "^10.8.2",
     "mochawesome": "^6.2.2",
     "mochawesome-merge": "^4.2.0",
     "proxyquire": "^2.1.3",
