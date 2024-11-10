@@ -1,3 +1,4 @@
 node_modules
-cypress/videos
-cypress/allure-results
+videos
+allure-results
+screenshots

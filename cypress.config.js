@@ -7,11 +7,11 @@ module.exports = defineConfig({
   defaultCommandTimeout: 20000,
   requestTimeout: 10000,
   e2e: {
-    specPattern: 'cypress/e2e/tests/**/*.{js,jsx,ts,tsx}',
-    supportFile: 'cypress/support/index.js',
+    specPattern: 'e2e/tests/**/*.{js,jsx,ts,tsx}',
+    supportFile: 'support/index.js',
     setupNodeEvents(on, config) {
       allureCypress(on, config, {
-        resultsDir: "cypress/allure-results",
+        resultsDir: "allure-results",
       });
       return config;
     }
